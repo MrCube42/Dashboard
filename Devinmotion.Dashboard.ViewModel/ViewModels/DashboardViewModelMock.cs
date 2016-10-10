@@ -35,12 +35,12 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
                     "Chiang Mai"));
             appointments.Add(
                 new Birthday(
-                    DateTime.Parse("18.07.2016"),
+                    new DateTime(2016, 7, 18),
                     "Karl Coder"));
             appointments.Add(
                 new Appointment(
-                    DateTime.Parse("19.07.2016 9:00"),
-                    DateTime.Parse("19.07.2016 17:00"),
+                    new DateTime(2016, 7, 19, 8, 0, 0),
+                    new DateTime(2016, 7, 19, 16, 0, 0),
                     "Workshop 'Refactoring Legacy Code'",
                     "Stefan Lieser",
                     "Shanghai"));

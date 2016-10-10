@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Devinmotion.Dashboard.WpfApp"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Devinmotion.Dashboard.View.Views;assembly=Devinmotion.Dashboard.View"
         Title="MainWindow"
         Width="525"
         Height="350"
         mc:Ignorable="d">
-    <Grid />
+    <views:DashboardView />
 </Window>
