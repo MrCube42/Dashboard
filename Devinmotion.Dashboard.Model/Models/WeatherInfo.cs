@@ -2,20 +2,20 @@
 {
     public class WeatherInfo
     {
-        private readonly string _location;
+        public string Location { get; }
 
-        private readonly string _temperature;
+        public string Temperature { get; }
 
-        private readonly string _description;
+        public string IconKey { get; }
 
-        private readonly string _iconKey;
+        public string Description { get; }
 
         public WeatherInfo(string location, string temperature, string description, string iconKey)
         {
-            _location = location;
-            _temperature = temperature;
-            _description = description;
-            _iconKey = iconKey;
+            Location = location;
+            Temperature = temperature;
+            Description = description;
+            IconKey = iconKey;
         }
     }
 }

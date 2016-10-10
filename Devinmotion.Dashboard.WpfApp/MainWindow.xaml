@@ -6,8 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Devinmotion.Dashboard.View.Views;assembly=Devinmotion.Dashboard.View"
         Title="MainWindow"
-        Width="525"
-        Height="350"
+        Width="800"
+        Height="600"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
     <views:DashboardView />
 </Window>

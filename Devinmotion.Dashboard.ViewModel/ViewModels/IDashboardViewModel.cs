@@ -8,7 +8,7 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
     {
         WeatherInfo CurrentWeatherInfo { get; }
 
-        DateTime Today { get; }
+        DateTime Now { get; }
 
         ReadOnlyObservableCollection<AppointmentBase> Appointments { get; }
 

@@ -6,20 +6,53 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:Devinmotion.Dashboard.ViewModel.ViewModels;assembly=Devinmotion.Dashboard.ViewModel"
              d:DataContext="{d:DesignInstance viewModels:DashboardViewModelMock}"
-             d:DesignHeight="1080"
-             d:DesignWidth="1920"
+             d:DesignHeight="600"
+             d:DesignWidth="800"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary Source="pack://application:,,,/Devinmotion.Dashboard.View;component/Resources/DataTemplateResources.xaml" />
+    </UserControl.Resources>
     <UserControl.DataContext>
         <viewModels:DashboardViewModelMock />
     </UserControl.DataContext>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-            <Label Content="{Binding Path=CurrentWeatherInfo, Mode=OneWay}" DockPanel.Dock="Left" />
-            <Label Content="{Binding Path=Today, Mode=OneWay}" DockPanel.Dock="Right" />
+            <Label Content="{Binding Path=CurrentWeatherInfo,
+                                     Mode=OneWay}"
+                   ContentTemplate="{StaticResource DataTemplate.WeatherInfo}"
+                   DockPanel.Dock="Left" />
+            <Label Content="{Binding Path=Now,
+                                     Mode=OneWay}"
+                   ContentStringFormat="dd.MM.yyyy, HH:mm"
+                   DockPanel.Dock="Right" />
         </DockPanel>
-        <Label Content="{Binding Path=CurrentBirthday, Mode=OneWay}" DockPanel.Dock="Bottom" />
+        <Label HorizontalAlignment="Center"
+               Content="{Binding Path=CurrentBirthday,
+                                 Mode=OneWay}"
+               ContentTemplate="{StaticResource DataTemplate.Birthday}"
+               DockPanel.Dock="Bottom" />
         <GroupBox Header="Termine">
-            <ItemsControl ItemsSource="{Binding Path=Appointments, Mode=OneWay}" />
+            <ItemsControl ItemsSource="{Binding Path=Appointments, Mode=OneWay}">
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="{x:Type ContentPresenter}">
+                        <Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <Ellipse Width="5"
+                                                 Height="5"
+                                                 Margin="10"
+                                                 VerticalAlignment="Center"
+                                                 DockPanel.Dock="Left"
+                                                 Fill="Black" />
+                                        <ContentPresenter VerticalAlignment="Center" Content="{Binding Path=., Mode=OneWay}" />
+                                    </DockPanel>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+            </ItemsControl>
         </GroupBox>
     </DockPanel>
 </UserControl>

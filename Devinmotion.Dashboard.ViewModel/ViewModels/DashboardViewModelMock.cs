@@ -8,7 +8,7 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
     {
         public WeatherInfo CurrentWeatherInfo { get; }
 
-        public DateTime Today { get; }
+        public DateTime Now { get; }
 
         public ReadOnlyObservableCollection<AppointmentBase> Appointments { get; }
 
@@ -23,7 +23,7 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
                     "bewölkt",
                     "CLOUDICON");
 
-            Today = DateTime.Now;
+            Now = DateTime.Now;
 
             ObservableCollection<AppointmentBase> appointments = new ObservableCollection<AppointmentBase>();
             appointments.Add(
