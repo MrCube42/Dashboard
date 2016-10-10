@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devinmotion.Dashboard.WpfApp", "Devinmotion.Dashboard.WpfApp\Devinmotion.Dashboard.WpfApp.csproj", "{6F04C3CD-5443-4B21-A99E-D1A50453334A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{425E800A-5A4A-47EF-94CE-74B63B0A218A} = {425E800A-5A4A-47EF-94CE-74B63B0A218A}
+		{229B4030-BD20-4814-80CE-B517C9FE15B4} = {229B4030-BD20-4814-80CE-B517C9FE15B4}
+		{4EEBD97A-FEA9-415D-9F06-0DA1E5840860} = {4EEBD97A-FEA9-415D-9F06-0DA1E5840860}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devinmotion.Dashboard.Model", "Devinmotion.Dashboard.Model\Devinmotion.Dashboard.Model.csproj", "{425E800A-5A4A-47EF-94CE-74B63B0A218A}"
 EndProject
