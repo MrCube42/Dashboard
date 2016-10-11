@@ -54,7 +54,9 @@
       <Name>Devinmotion.Dashboard.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\DataTemplateResources.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -38,11 +38,16 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\AppointmentBase.cs" />
     <Compile Include="Models\Birthday.cs" />
+    <Compile Include="Models\DayTime.cs" />
+    <Compile Include="Models\WeatherCondition.cs" />
+    <Compile Include="Models\WeatherType.cs" />
     <Compile Include="Models\WeatherInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IAppointmentRepository.cs" />
     <Compile Include="Services\IBirthdayRepository.cs" />
+    <Compile Include="Services\IWeatherConditionService.cs" />
     <Compile Include="Services\IWeatherInfoRepository.cs" />
+    <Compile Include="Services\WeatherConditionService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

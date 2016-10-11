@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Devinmotion.Dashboard.Model.Models;
+using Devinmotion.Dashboard.Model.Services;
 
 namespace Devinmotion.Dashboard.ViewModel.ViewModels
 {
@@ -16,12 +17,15 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
 
         public DashboardViewModelMock()
         {
+            WeatherConditionService weatherConditionService = new WeatherConditionService();
+            WeatherCondition weatherCondition = weatherConditionService.ConvertKeyToWeatherCondition("03n");
+
             CurrentWeatherInfo =
                 new WeatherInfo(
                     "Köln",
                     "21°C",
                     "bewölkt",
-                    "CLOUDICON");
+                    weatherCondition);
 
             Now = DateTime.Now;
 

@@ -6,16 +6,16 @@
 
         public string Temperature { get; }
 
-        public string IconKey { get; }
+        public WeatherCondition WeatherCondition { get; }
 
         public string Description { get; }
 
-        public WeatherInfo(string location, string temperature, string description, string iconKey)
+        public WeatherInfo(string location, string temperature, string description, WeatherCondition weatherCondition)
         {
             Location = location;
             Temperature = temperature;
             Description = description;
-            IconKey = iconKey;
+            WeatherCondition = weatherCondition;
         }
     }
 }

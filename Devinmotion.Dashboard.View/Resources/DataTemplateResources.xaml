@@ -5,12 +5,10 @@
     <DataTemplate x:Key="DataTemplate.WeatherInfo" DataType="{x:Type models:WeatherInfo}">
         <DockPanel>
             <!--  Icon  -->
-            <Border Width="20"
-                    Height="20"
-                    Background="Magenta"
-                    DockPanel.Dock="Left">
-                <TextBlock Text="{Binding Path=IconKey, Mode=OneWay}" />
-            </Border>
+            <StackPanel DockPanel.Dock="Left">
+                <TextBlock Text="{Binding Path=WeatherCondition.Type, Mode=OneWay}" />
+                <TextBlock Text="{Binding Path=WeatherCondition.DayTime, Mode=OneWay}" />
+            </StackPanel>
             <StackPanel DockPanel.Dock="Right">
                 <TextBlock>
                     <Run Text="{Binding Path=Location, Mode=OneWay}" /><Run Text=", " /><Run Text="{Binding Path=Temperature, Mode=OneWay}" />
