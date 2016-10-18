@@ -9,7 +9,7 @@ export class WeatherService {
 
   constructor() { }
 
-  public FetchWeatherInfo() {
+  public fetchWeatherInfo() {
     return new WeatherInfo(
       'Köln',
       '21°C',

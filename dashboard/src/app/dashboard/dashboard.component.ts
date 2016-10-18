@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   public weatherInfo: WeatherInfo;
 
   constructor(private weatherService: WeatherService) {
-    this.weatherInfo = weatherService.FetchWeatherInfo();
+    this.weatherInfo = weatherService.fetchWeatherInfo();
   }
 
   ngOnInit() {
