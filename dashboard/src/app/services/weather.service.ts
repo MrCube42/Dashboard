@@ -7,17 +7,15 @@ import { WeatherType } from '../shared/weather-type';
 @Injectable()
 export class WeatherService {
 
-  public CurrentWeatherInfo;
+  constructor() { }
 
-  constructor() {
-
-    this.CurrentWeatherInfo =
-      new WeatherInfo(
-        'Köln',
-        '21°C',
-        'bewölkt',
-        new WeatherCondition(WeatherType.ShowerRain)
-      );
+  public FetchWeatherInfo() {
+    return new WeatherInfo(
+      'Köln',
+      '21°C',
+      'bewölkt',
+      new WeatherCondition(WeatherType.ShowerRain)
+    );
   }
 
 }
