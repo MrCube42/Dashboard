@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:models="clr-namespace:Devinmotion.Dashboard.Model.Models;assembly=Devinmotion.Dashboard.Model">
+                    xmlns:appointmentsTypes="clr-namespace:Devinmotion.Dashboard.Model.Appointments.Types;assembly=Devinmotion.Dashboard.Model"
+                    xmlns:weatherTypes="clr-namespace:Devinmotion.Dashboard.Model.Weather.Types;assembly=Devinmotion.Dashboard.Model">
 
-    <DataTemplate x:Key="DataTemplate.WeatherInfo" DataType="{x:Type models:WeatherInfo}">
+    <DataTemplate x:Key="DataTemplate.WeatherInfo" DataType="{x:Type weatherTypes:WeatherInfo}">
         <DockPanel>
             <!--  Icon  -->
             <StackPanel DockPanel.Dock="Left">
@@ -19,20 +20,20 @@
     </DataTemplate>
 
     <!--  x:Key="DataTemplate.Appointment"  -->
-    <DataTemplate DataType="{x:Type models:Appointment}">
+    <DataTemplate DataType="{x:Type appointmentsTypes:Appointment}">
         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap">
             <Run Text="{Binding Path=StartDate, Mode=OneWay, StringFormat={}{0:dd.MM.yyyy}}" /><Run Text=", " /><Run Text="{Binding Path=StartDate, Mode=OneWay, StringFormat={}{0:HH:mm}}" /><Run Text=" - " /><Run Text="{Binding Path=EndDate, Mode=OneWay, StringFormat={}{0:HH:mm}}" /><Run Text=" - " /><Run Text="{Binding Path=Title, Mode=OneWay}" /><Run Text=" mit " /><Run Text="{Binding Path=Name, Mode=OneWay}" /><Run Text=", " /><Run Text="{Binding Path=Location, Mode=OneWay}" />
         </TextBlock>
     </DataTemplate>
 
     <!--  x:Key="DataTemplate.Appointment.Birthday"  -->
-    <DataTemplate DataType="{x:Type models:Birthday}">
+    <DataTemplate DataType="{x:Type appointmentsTypes:Birthday}">
         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap">
             <Run Text="{Binding Path=Date, Mode=OneWay, StringFormat={}{0:dd.MM.yyyy}}" /><Run Text=" - Geburtstag " /><Run Text="{Binding Path=Name, Mode=OneWay}" />
         </TextBlock>
     </DataTemplate>
 
-    <DataTemplate x:Key="DataTemplate.Birthday" DataType="{x:Type models:Birthday}">
+    <DataTemplate x:Key="DataTemplate.Birthday" DataType="{x:Type appointmentsTypes:Birthday}">
         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap">
             <Run Text="+++ " /><Run Text="{Binding Path=Name, Mode=OneWay}" /><Run Text=" hat heute Geburtstag. Herzlichen Glückwunsch +++" />
         </TextBlock>

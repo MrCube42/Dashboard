@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Devinmotion.Dashboard.Model.Models;
-using Devinmotion.Dashboard.Model.Services;
+using Devinmotion.Dashboard.Model.Weather.Services;
+using Devinmotion.Dashboard.Model.Weather.Types;
+using Devinmotion.Dashboard.Model.Appointments.Types;
 
 namespace Devinmotion.Dashboard.ViewModel.ViewModels
 {
@@ -17,13 +18,13 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
 
         public DashboardViewModelMock()
         {
-            WeatherConditionService weatherConditionService = new WeatherConditionService();
+            OpenWeatherMapWeatherConditionService weatherConditionService = new OpenWeatherMapWeatherConditionService();
             WeatherCondition weatherCondition = weatherConditionService.ConvertKeyToWeatherCondition("03n");
 
             CurrentWeatherInfo =
                 new WeatherInfo(
                     "Köln",
-                    "21°C",
+                    new Temperature(42.0, TemperatureUnit.Celius),
                     "bewölkt",
                     weatherCondition);
 
@@ -32,10 +33,10 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
             ObservableCollection<AppointmentBase> appointments = new ObservableCollection<AppointmentBase>();
             appointments.Add(
                 new Appointment(
-                    DateTime.Today.AddHours(9), 
-                    DateTime.Today.AddHours(17), 
-                    "Workshop 'Clean Code Developer'", 
-                    "Stefan Lieser", 
+                    DateTime.Today.AddHours(9),
+                    DateTime.Today.AddHours(17),
+                    "Workshop 'Clean Code Developer'",
+                    "Stefan Lieser",
                     "Chiang Mai"));
             appointments.Add(
                 new Birthday(

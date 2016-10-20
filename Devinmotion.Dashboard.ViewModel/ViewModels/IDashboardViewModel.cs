@@ -1,4 +1,5 @@
-﻿using Devinmotion.Dashboard.Model.Models;
+﻿using Devinmotion.Dashboard.Model.Appointments.Types;
+using Devinmotion.Dashboard.Model.Weather.Types;
 using System;
 using System.Collections.ObjectModel;
 

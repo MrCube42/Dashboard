@@ -1,16 +1,16 @@
-﻿namespace Devinmotion.Dashboard.Model.Models
+﻿namespace Devinmotion.Dashboard.Model.Weather.Types
 {
     public class WeatherInfo
     {
         public string Location { get; }
 
-        public string Temperature { get; }
+        public Temperature Temperature { get; }
 
         public WeatherCondition WeatherCondition { get; }
 
         public string Description { get; }
 
-        public WeatherInfo(string location, string temperature, string description, WeatherCondition weatherCondition)
+        public WeatherInfo(string location, Temperature temperature, string description, WeatherCondition weatherCondition)
         {
             Location = location;
             Temperature = temperature;

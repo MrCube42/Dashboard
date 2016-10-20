@@ -1,10 +1,10 @@
 ﻿using System;
-using Devinmotion.Dashboard.Model.Models;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Globalization;
+using Devinmotion.Dashboard.Model.Weather.Types;
 
-namespace Devinmotion.Dashboard.Model.Services
+namespace Devinmotion.Dashboard.Model.Weather.Services
 {
     public class WeatherConditionService : IWeatherConditionService
     {
