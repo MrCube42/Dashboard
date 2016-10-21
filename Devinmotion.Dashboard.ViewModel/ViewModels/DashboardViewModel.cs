@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Windows.Threading;
+
 using Prism.Mvvm;
+using RestSharp;
+
 using Devinmotion.Dashboard.Model.Weather.Types;
 using Devinmotion.Dashboard.Model.Weather.Services;
 using Devinmotion.Dashboard.Model.Appointments.Types;
 using Devinmotion.Dashboard.Model.Weather.Serialization;
-using RestSharp;
 
 namespace Devinmotion.Dashboard.ViewModel.ViewModels
 {
@@ -43,12 +46,12 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
         {
             IWeatherConditionService weatherConditionService = new OpenWeatherMapWeatherConditionService();
             IJsonSerializerStrategy serializerStrategy = new OpenWeatherMapWeatherInfoSerializerStrategy(weatherConditionService);
-            IWeatherInfoRepository weatherInfoRepository = new OpenWeatherMapWeatherInfoRepository(serializerStrategy);
+
+            IWeatherInfoRepository weatherInfoRepository =
+                new OpenWeatherMapWeatherInfoRepository(serializerStrategy, Dispatcher.CurrentDispatcher);
 
             weatherInfos = weatherInfoRepository.LoadWeatherInfos();
             ((INotifyCollectionChanged)weatherInfos).CollectionChanged += WeatherInfosCollectionChangedHandler;
-
-            WeatherCondition weatherCondition = weatherConditionService.ConvertKeyToWeatherCondition("03n");
 
             Now = DateTime.Now;
 

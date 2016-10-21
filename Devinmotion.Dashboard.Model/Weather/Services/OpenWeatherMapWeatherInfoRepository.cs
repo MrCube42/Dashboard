@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 using RestSharp;
 
+using Devinmotion.Dashboard.Model.Helpers;
 using Devinmotion.Dashboard.Model.Weather.Types;
 
 namespace Devinmotion.Dashboard.Model.Weather.Services
@@ -27,7 +29,15 @@ namespace Devinmotion.Dashboard.Model.Weather.Services
 
         private IJsonSerializerStrategy SerializerStrategy { get; }
 
-        public OpenWeatherMapWeatherInfoRepository(IJsonSerializerStrategy serializerStrategy)
+        private Dispatcher uiDispatcher;
+
+        public OpenWeatherMapWeatherInfoRepository(IJsonSerializerStrategy serializerStrategy, Dispatcher theUiDispatcher)
+            : this(serializerStrategy)
+        {
+            uiDispatcher = theUiDispatcher;
+        }
+
+        private OpenWeatherMapWeatherInfoRepository(IJsonSerializerStrategy serializerStrategy)
         {
             SerializerStrategy = serializerStrategy;
 
@@ -49,8 +59,10 @@ namespace Devinmotion.Dashboard.Model.Weather.Services
         {
             ObservableCollection<WeatherInfo> observableWeatherInfos =
                 new ObservableCollection<WeatherInfo>();
+            ReadOnlyObservableCollection<WeatherInfo> readonlyWeatherInfos =
+                new ReadOnlyObservableCollection<WeatherInfo>(observableWeatherInfos);
 
-            LoadWeatherInfosAsync().ContinueWith(task =>
+            LoadWeatherInfosAsync().ContinueIn(task =>
             {
                 string content = task.Result.Content;
                 if (content != null)
@@ -58,10 +70,8 @@ namespace Devinmotion.Dashboard.Model.Weather.Services
                     WeatherInfo weatherInfo = SimpleJson.DeserializeObject<WeatherInfo>(content, SerializerStrategy);
                     observableWeatherInfos.Add(weatherInfo);
                 }
-            });
+            }, uiDispatcher);
 
-            ReadOnlyObservableCollection<WeatherInfo> readonlyWeatherInfos =
-                new ReadOnlyObservableCollection<WeatherInfo>(observableWeatherInfos);
             return readonlyWeatherInfos;
         }
     }

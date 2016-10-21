@@ -34,11 +34,13 @@
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appointments\Types\Appointment.cs" />
     <Compile Include="Appointments\Types\AppointmentBase.cs" />
     <Compile Include="Appointments\Types\Birthday.cs" />
+    <Compile Include="Helpers\TaskExtensions.cs" />
     <Compile Include="Weather\Types\DayTime.cs" />
     <Compile Include="Weather\Serialization\OpenWeatherMapWeatherInfoSerializerStrategy.cs" />
     <Compile Include="Weather\Types\Temperature.cs" />
