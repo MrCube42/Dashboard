@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 using Devinmotion.Dashboard.Model.Appointments.Types;
 
@@ -6,6 +6,6 @@ namespace Devinmotion.Dashboard.Model.Appointments.Services
 {
     public interface IAppointmentRepository
     {
-        IEnumerable<Appointment> LoadAppointments();
+        ReadOnlyObservableCollection<AppointmentBase> LoadAppointments();
     }
 }

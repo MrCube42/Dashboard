@@ -32,27 +32,29 @@
                ContentTemplate="{StaticResource DataTemplate.Birthday}"
                DockPanel.Dock="Bottom" />
         <GroupBox Header="Termine">
-            <ItemsControl ItemsSource="{Binding Path=Appointments, Mode=OneWay}">
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="{x:Type ContentPresenter}">
-                        <Setter Property="ContentTemplate">
-                            <Setter.Value>
-                                <DataTemplate>
-                                    <DockPanel>
-                                        <Ellipse Width="5"
-                                                 Height="5"
-                                                 Margin="10"
-                                                 VerticalAlignment="Center"
-                                                 DockPanel.Dock="Left"
-                                                 Fill="Black" />
-                                        <ContentPresenter VerticalAlignment="Center" Content="{Binding Path=., Mode=OneWay}" />
-                                    </DockPanel>
-                                </DataTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
-            </ItemsControl>
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Path=Appointments, Mode=OneWay}">
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="{x:Type ContentPresenter}">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <DockPanel>
+                                            <Ellipse Width="5"
+                                                     Height="5"
+                                                     Margin="10"
+                                                     VerticalAlignment="Center"
+                                                     DockPanel.Dock="Left"
+                                                     Fill="Black" />
+                                            <ContentPresenter VerticalAlignment="Center" Content="{Binding Path=., Mode=OneWay}" />
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+            </ScrollViewer>
         </GroupBox>
     </DockPanel>
 </UserControl>
