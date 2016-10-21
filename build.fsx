@@ -11,9 +11,6 @@ open System.IO
 let binDir = "bin"
 let buildDir = binDir </> "build"
 
-let cwd = System.IO.Directory.GetCurrentDirectory()
-Log "Wotrking in ..." [ cwd ]
-
 Target "Clean" (fun _ -> 
     CleanDirs [ buildDir ]
 )
