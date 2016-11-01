@@ -13,7 +13,7 @@
         <ResourceDictionary Source="pack://application:,,,/Devinmotion.Dashboard.View;component/Resources/DataTemplateResources.xaml" />
     </UserControl.Resources>
     <UserControl.DataContext>
-        <viewModels:DashboardViewModelMock />
+        <viewModels:DashboardViewModel />
     </UserControl.DataContext>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" LastChildFill="False">

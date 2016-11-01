@@ -1,12 +1,13 @@
 ﻿using System;
-using Devinmotion.Dashboard.Model.Models;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace Devinmotion.Dashboard.Model.Services
+using Devinmotion.Dashboard.Model.Weather.Types;
+
+namespace Devinmotion.Dashboard.Model.Weather.Services
 {
-    public class WeatherConditionService : IWeatherConditionService
+    public class OpenWeatherMapWeatherConditionService : IWeatherConditionService
     {
         private static readonly Regex WeatherKeyGroupingRegex = new Regex(@"(\d+)(d|n)");
 

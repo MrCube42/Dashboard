@@ -1,6 +1,6 @@
-﻿using Devinmotion.Dashboard.Model.Models;
+﻿using Devinmotion.Dashboard.Model.Weather.Types;
 
-namespace Devinmotion.Dashboard.Model.Services
+namespace Devinmotion.Dashboard.Model.Weather.Services
 {
     public interface IWeatherConditionService
     {

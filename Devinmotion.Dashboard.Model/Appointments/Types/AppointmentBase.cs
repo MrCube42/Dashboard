@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Devinmotion.Dashboard.Model.Models
+namespace Devinmotion.Dashboard.Model.Appointments.Types
 {
     public class AppointmentBase
     {

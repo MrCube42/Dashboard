@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{60461352-FE9C-463E-933B-473EAB300BA7}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devinmotion.Dashboard.WpfApp", "Devinmotion.Dashboard.WpfApp\Devinmotion.Dashboard.WpfApp.csproj", "{6F04C3CD-5443-4B21-A99E-D1A50453334A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{425E800A-5A4A-47EF-94CE-74B63B0A218A} = {425E800A-5A4A-47EF-94CE-74B63B0A218A}

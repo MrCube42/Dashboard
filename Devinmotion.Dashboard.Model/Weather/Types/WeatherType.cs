@@ -1,4 +1,4 @@
-﻿namespace Devinmotion.Dashboard.Model.Models
+﻿namespace Devinmotion.Dashboard.Model.Weather.Types
 {
     public enum WeatherType
     {

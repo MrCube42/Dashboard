@@ -1,12 +1,13 @@
 content: none
 source http://nuget.org/api/v2
 
-nuget FSharp.Core redirects:force
 nuget Knockout
+nuget NuGet.CommandLine
+nuget Prism.Wpf 6.2.0 framework: >= net452
 nuget RavenDB.Server
+nuget RestSharp 105.2.3 framework: >= net452
 nuget serilog.sinks.nlog
 nuget Argu
-nuget FsCheck < 2.1
 nuget FsCheck.Xunit < 2.1
 nuget Nancy.Authentication.Stateless
 nuget Nancy.Hosting.Self
@@ -30,9 +31,6 @@ nuget Machine.Specifications.Runner.Console
 nuget Nancy.Testing
 nuget xunit.extensions ~> 1.9
 nuget xunit.runners ~> 1.9
-nuget Newtonsoft.Json redirects:force
-nuget Microsoft.AspNet.Razor 2.0.30506
-nuget Microsoft.AspNet.WebPages 2.0.30506
 nuget FluentMigrator.Runner
 nuget HashLib
 nuget FSharp.Compiler.Service
