@@ -2,14 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:appointmentsTypes="clr-namespace:Devinmotion.Dashboard.Model.Appointments.Types;assembly=Devinmotion.Dashboard.Model"
                     xmlns:weatherTypes="clr-namespace:Devinmotion.Dashboard.Model.Weather.Types;assembly=Devinmotion.Dashboard.Model">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Devinmotion.Dashboard.View;component/Resources/FontResources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate x:Key="DataTemplate.WeatherInfo" DataType="{x:Type weatherTypes:WeatherInfo}">
         <DockPanel>
-            <!--  Icon  -->
-            <StackPanel DockPanel.Dock="Left">
-                <TextBlock Text="{Binding Path=WeatherCondition.Type, Mode=OneWay}" />
-                <TextBlock Text="{Binding Path=WeatherCondition.DayTime, Mode=OneWay}" />
-            </StackPanel>
+            <TextBlock Margin="10"
+                       VerticalAlignment="Center"
+                       FontFamily="{StaticResource FontFamily.Icons.Weather}"
+                       FontSize="{StaticResource Size.Icon.Standard}"
+                       Foreground="{StaticResource Brush.Icon.Standard}"
+                       Text="{Binding Path=WeatherCondition,
+                                      Converter={StaticResource WeatherConditionToWeatherIconFontKeyConverter},
+                                      Mode=OneWay}" />
             <StackPanel DockPanel.Dock="Right">
                 <TextBlock>
                     <Run Text="{Binding Path=Location, Mode=OneWay}" /><Run Text=", " /><Run Text="{Binding Path=Temperature, Mode=OneWay}" />

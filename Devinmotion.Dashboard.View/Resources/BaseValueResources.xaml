@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cl="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Devinmotion.Dashboard.View;component/Resources/ConverterResources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <cl:Double x:Key="Size.Icon.Standard">32</cl:Double>
+
+</ResourceDictionary>
