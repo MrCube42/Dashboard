@@ -37,6 +37,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Appointments\Services\LocalFileAppointmentRepository.cs" />
     <Compile Include="Appointments\Types\Appointment.cs" />
     <Compile Include="Appointments\Types\AppointmentBase.cs" />
     <Compile Include="Appointments\Types\Birthday.cs" />

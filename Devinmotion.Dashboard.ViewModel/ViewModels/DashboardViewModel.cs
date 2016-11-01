@@ -10,6 +10,7 @@ using Devinmotion.Dashboard.Model.Weather.Types;
 using Devinmotion.Dashboard.Model.Weather.Services;
 using Devinmotion.Dashboard.Model.Appointments.Types;
 using Devinmotion.Dashboard.Model.Weather.Serialization;
+using Devinmotion.Dashboard.Model.Appointments.Services;
 
 namespace Devinmotion.Dashboard.ViewModel.ViewModels
 {
@@ -44,37 +45,22 @@ namespace Devinmotion.Dashboard.ViewModel.ViewModels
 
         public DashboardViewModel()
         {
+            Dispatcher uiDispatcher = Dispatcher.CurrentDispatcher;
+
             IWeatherConditionService weatherConditionService = new OpenWeatherMapWeatherConditionService();
             IJsonSerializerStrategy serializerStrategy = new OpenWeatherMapWeatherInfoSerializerStrategy(weatherConditionService);
 
             IWeatherInfoRepository weatherInfoRepository =
-                new OpenWeatherMapWeatherInfoRepository(serializerStrategy, Dispatcher.CurrentDispatcher);
+                new OpenWeatherMapWeatherInfoRepository(serializerStrategy, uiDispatcher);
 
             weatherInfos = weatherInfoRepository.LoadWeatherInfos();
             ((INotifyCollectionChanged)weatherInfos).CollectionChanged += WeatherInfosCollectionChangedHandler;
 
             Now = DateTime.Now;
 
-            ObservableCollection<AppointmentBase> appointments = new ObservableCollection<AppointmentBase>();
-            appointments.Add(
-                new Appointment(
-                    DateTime.Today.AddHours(9),
-                    DateTime.Today.AddHours(17),
-                    "Workshop 'Clean Code Developer'",
-                    "Stefan Lieser",
-                    "Chiang Mai"));
-            appointments.Add(
-                new Birthday(
-                    new DateTime(2016, 7, 18),
-                    "Karl Coder"));
-            appointments.Add(
-                new Appointment(
-                    new DateTime(2016, 7, 19, 8, 0, 0),
-                    new DateTime(2016, 7, 19, 16, 0, 0),
-                    "Workshop 'Refactoring Legacy Code'",
-                    "Stefan Lieser",
-                    "Shanghai"));
-            Appointments = new ReadOnlyObservableCollection<AppointmentBase>(appointments);
+            const string filePath = @"..\..\..\data\appointments.txt";
+            IAppointmentRepository appointmentRepository = new LocalFileAppointmentRepository(filePath, uiDispatcher);
+            Appointments = appointmentRepository.LoadAppointments();
 
             CurrentBirthday =
                 new Birthday(
